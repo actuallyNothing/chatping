@@ -12,7 +12,7 @@ function chatpinging(ply, text)
 		return
 	end
 
-	pingsound = GetConVar('chatping_sound'):GetString()
+	local pingsound = GetConVar('chatping_sound'):GetString()
 
 	-- Pingsound error handling
 	if pingsound != 'default' && pingsound != 'custom' then
@@ -24,7 +24,7 @@ function chatpinging(ply, text)
 	end
 
 	-- Store player's nick as a variable
-	nick = LocalPlayer():Nick()
+	local nick = LocalPlayer():Nick()
 
 	-- Non-alphanumeric text handling
 	if GetConVar('chatping_alphanumeric'):GetBool() == true then
