@@ -5,7 +5,7 @@ CreateClientConVar("chatping_alphanumeric", "0", true, false, "Defines whether t
 
 
 function chatpinging(ply, text)
-	// Close up the function if the addon is disabled or if the player tries to ping themselves without loopback enabled
+	-- Close up the function if the addon is disabled or if the player tries to ping themselves without loopback enabled
 	if GetConVar('chatping_enable'):GetBool() == false then
 		return
 	elseif ply:Nick() == LocalPlayer():Nick() && GetConVar('chatping_loopback'):GetBool() == false then
@@ -14,7 +14,7 @@ function chatpinging(ply, text)
 
 	pingsound = GetConVar('chatping_sound'):GetString()
 
-	// Pingsound error handling
+	-- Pingsound error handling
 	if pingsound != 'default' && pingsound != 'custom' then
 		MsgC(Color(255,0,0), "[ERROR] chatping_sound must be either 'default' or 'custom'!")
 		return
@@ -23,22 +23,22 @@ function chatpinging(ply, text)
 		return
 	end
 
-	// Store player's nick as a variable
+	-- Store player's nick as a variable
 	nick = LocalPlayer():Nick()
 
-	// Non-alphanumeric text handling
+	-- Non-alphanumeric text handling
 	if GetConVar('chatping_alphanumeric'):GetBool() == true then
 		nick = nick:gsub('%W','')
 	end
 
-	// Try and find the nick within the message
-	// If it is found, play sound
+	-- Try and find the nick within the message
+	-- If it is found, play sound
 	if string.find(text, nick) then
 		if pingsound == 'default' then
-			// Play default addon sound
+			-- Play default addon sound
 			surface.PlaySound("pingsound.wav")
 		else 
-			// Play custom sound file, handle errors
+			-- Play custom sound file, handle errors
 			sound.PlayFile("chatping_sound.wav", "mono", function( station, errCode, errStr )
 				if (IsValid(station)) then
 					station:Play()
