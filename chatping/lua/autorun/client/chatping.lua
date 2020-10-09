@@ -1,10 +1,10 @@
 CreateClientConVar("chatping_enable", "1", true, false, "Enable chatpinging: play a sound when the player's nickname is mentioned by another player in chat.", 0, 1)
 CreateClientConVar("chatping_loopback", "0", true, false, "Allows the player to chatping themselves", 0, 1)
-CreateClientConVar("chatping_sound", "default", true, false, "Defines a custom sound for chatpinging. Set to 'default' for default addon sound. Set to 'custom' to play a custom sound (must be named 'jg_chatping_sound.wav')")
+CreateClientConVar("chatping_sound", "default", true, false, "Defines a custom sound for chatpinging. Set to 'default' for default addon sound. Set to 'custom' to play a custom sound (must be named 'chatping_sound.wav')")
 CreateClientConVar("chatping_alphanumeric", "0", true, false, "Defines whether the addon should ignore non-alphanumeric characters. This can help a bit with names that contain weird characters or that are not usually autocompleted, but it is not perfect and can cause issues with some characters. If set to 0, a perfect match must be achieved to play the sound (this can be done by autocompleting nicknames with the TAB key).", 0, 1)
 
 
-function pinging(ply, text)
+function chatpinging(ply, text)
 	// Close up the function if the addon is disabled or if the player tries to ping themselves without loopback enabled
 	if GetConVar('chatping_enable'):GetBool() == false then
 		return
@@ -50,4 +50,4 @@ function pinging(ply, text)
 	end
 end
 
-hook.Add("OnPlayerChat", "pinghook", pinging)
+hook.Add("OnPlayerChat", "jg_chatpinghook", chatpinging)
