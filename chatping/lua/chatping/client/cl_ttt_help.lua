@@ -1,4 +1,4 @@
-function addPingTab(dtabs)
+function Chatping.TerrorTab(dtabs)
 
 	-- Create initial panel and list
   	local padding = dtabs:GetPadding()
@@ -45,9 +45,5 @@ function addPingTab(dtabs)
 	dtabs:AddSheet("Chatping", pingSettings, "icon16/comments.png")
 end
 
--- Run only in TTT
-if engine.ActiveGamemode() != 'terrortown' then
-	return
-else
-	hook.Add("TTTSettingsTabs", "pingingpanel", addPingTab)
-end
+-- Add hook
+hook.Add("TTTSettingsTabs", "ChatpingTerrorHook", Chatping.TerrorTab)
