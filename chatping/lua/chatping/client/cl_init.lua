@@ -1,10 +1,16 @@
+-- Client convars
 CreateClientConVar("chatping_enable", "1", true, false, "Enable chatpinging: play a sound when the player's nickname is mentioned by another player in chat.", 0, 1)
 CreateClientConVar("chatping_sound", "default", true, false, "Defines a custom sound for chatpinging. Set to 'default' for default addon sound. Set to 'custom' to play a custom sound (must be named 'chatping_sound.wav')")
 CreateClientConVar("chatping_casesensitive", "0", true, false, "Defines whether the addon is case-sensitive or not. Disabled by default, enable to only chatping whenever a perfect case-sensitive match is achieved.", 0, 1)
 CreateClientConVar("chatping_alias_enable", 0, true, false, "Enables an alias to be chatpinged besides your normal nickname. Set with 'chatping_alias'")
 CreateClientConVar("chatping_alias", "", true, false, "Set an alias to be chatpinged besides your normal nickname.", 0, 1)
 
-function chatpinging(ply, text)
+-- If the current gamemode is TTT, add a tab to its helpmenu
+if engine.ActiveGamemode() == 'terrortown' then
+	include("chatping/client/cl_ttt_help.lua")
+end
+
+function Chatping.Main(ply, text)
 	-- Close up the function if the addon is disabled or if the player tries to ping themselves
 	if GetConVar('chatping_enable'):GetBool() == false then
 		return
@@ -26,16 +32,6 @@ function chatpinging(ply, text)
 	-- Store player's nick and alias as a local variable
 	local nick = LocalPlayer():Nick()
 	local alias = nick
-	if GetConVar('chatping_alias_enable'):GetBool() == true && GetConVar('chatping_alias'):GetString() != "" then
-		alias = GetConVar('chatping_alias'):GetString()
-		if alias == nick then
-			MsgC(Color(255,0,0), "[ERROR] Your alias can't be the same as your nickname!\n")
-			return
-		end
-	elseif GetConVar('chatping_alias_enable'):GetBool() == true && GetConVar('chatping_alias'):GetString() == "" then
-		MsgC(Color(255,0,0), "[ERROR] chatping_alias can't be empty while enabled!\n")
-		return
-	end
 
 	-- Non case-sensitive text handling
 	if GetConVar('chatping_casesensitive'):GetBool() == false then
@@ -63,4 +59,5 @@ function chatpinging(ply, text)
 	end
 end
 
-hook.Add("OnPlayerChat", "jg_chatpinghook", chatpinging)
+-- Add main hook
+hook.Add("OnPlayerChat", "ChatpingMainHook", Chatping.Main)
