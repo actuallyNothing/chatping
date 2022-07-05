@@ -8,7 +8,7 @@ Workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=2251170323
 
 With the default configuration, the addon will play a sound every time the player's name is mentioned in chat (non case-sensitive). Config variables can be tweaked from the console or from the special menu that can be opened by simply typing "chatping" in console.
 
-This menu also allows to add **an indefinite amount of aliases** to also get notified of other mentions or words. This can be userful for users who go by a lot of names, or those in Staff positions that would like to be notified if someone calls for a moderator/admin.
+This menu also allows to add **an indefinite amount of aliases** to also get notified of other mentions or words. This can be useful for users who go by a lot of names, or those in Staff positions that would like to be notified if someone calls for a moderator/admin.
 
 There's a variety of sounds that come installed with the addon, and there's a slot for a custom sound if a user wants to paste in his own notification sound.
 
