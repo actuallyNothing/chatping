@@ -156,7 +156,7 @@ do
 end
 
 function Chatping:Main(ply, text)
-    if (not self.enable) then return end
+    if (not self.enable or not type(ply) == "Player" or not IsValid(ply)) then return end
     if (ply == LocalPlayer() and not self.selfping) then return end
     if (self.muting and ply:IsMuted()) then return end
 
