@@ -17,8 +17,10 @@ L.chatping_language = "Determines Chatping language."
 
 -- Errors
 L.InvalidSound = "[chatping] %s is not a valid sound!\n"
-L.NoCustomSoundFound = "Couldn't play custom sound! Make sure it's in .wav format, is in the \"sound/chatping\" folder and it's named \"custom.wav\".+"
-L.ChatpingError = "An error ocurred trying to chatping! Try re-joining your game, if the error persists contact the developer (actuallyNothing) with the following information:\n    SOUND: %s\n    CODE: %s\n    STRING: %s"
+L.NoCustomSoundFound = "[chatping error] Couldn't play custom sound! Make sure it's in .wav format, is in the \"sound/chatping\" folder and it's named \"custom.wav\".\n"
+L.NoCustomSoundFoundShort = "[chatping] Couldn't play custom sound! Check the console for more details."
+L.ChatpingError = "[chatping error] An error ocurred trying to chatping! Try re-joining your game, if the error persists contact the developer (actuallyNothing) with the following information:\n    SOUND: %s\n    CODE: %s\n    STRING: %s\n"
+L.ChatpingErrorShort = "[chatping] An error ocurred trying to chatping! Check the console for more details."
 
 -- GUI
 L.ConCommandHelp = "Open the Chatping configuration menu."

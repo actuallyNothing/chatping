@@ -68,6 +68,7 @@ for bool, default in pairs(bools) do
 end
 
 local clr_red = Color(200,30,30)
+local clr_yellow = Color(255,209,6)
 
 CreateClientConVar("chatping_sound", "default", true, false, Chatping:GetPhrase("chatping_sound"))
 
@@ -115,9 +116,11 @@ function Chatping:Ping(test)
                 station:Play()
             else
                 if (errCode == 2 and self.Sound == "custom") then
-                    ErrorNoHaltWithStack(Chatping:GetPhrase("NoCustomSoundFound"))
+                    MsgC(clr_yellow, Chatping:GetPhrase("NoCustomSoundFound"))
+                    chat.AddText(clr_yellow, Chatping:GetPhrase("NoCustomSoundFoundShort"))
                 else
-                    ErrorNoHaltWithStack(Chatping:GetPhrase("ChatpingError"):format(self.Sound, errcode or "N/A", errStr or "N/A"))
+                    MsgC(clr_yellow, Chatping:GetPhrase("ChatpingError"):format(self.Sound, errcode or "N/A", errStr or "N/A"))
+                    chat.AddText(clr_yellow, Chatping:GetPhrase("ChatpingErrorShort"))
                 end
             end
         end)
