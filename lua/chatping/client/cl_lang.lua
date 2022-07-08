@@ -13,7 +13,7 @@ function Chatping:GetPhrase(phrase, lang)
         lang = "en"
 
         if (not self.Languages["en"][phrase]) then
-            return "Invalid phrase"
+            return "Invalid phrase\n"
         end
     end
 

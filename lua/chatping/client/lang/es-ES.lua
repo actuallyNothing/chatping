@@ -20,7 +20,7 @@ L.InvalidSound = "[chatping] ¡%s no es un sonido válido!\n"
 L.NoCustomSoundFound = "[chatping error] ¡No se pudo reproducir el sonido personalizado! Asegúrate de que esté en formato .wav, esté en la carpeta \"sound/chatping\" y tenga el nombre \"custom.wav\".\n"
 L.NoCustomSoundFoundShort = "[chatping] ¡Error con el sonido personalizado! Revisa la consola para más detalles."
 L.ChatpingError = "[chatping error] ¡Ocurrió un error en el Chatping! Intenta salir y volver a entrar de la partida, si el error continúa contacta con el desarrollador (actuallyNothing) y dale la siguiente información:\n    SOUND: %s\n    CODE: %s\n    STRING: %s\n"
-L.ChatpingErrorShort = "[chatping] ¡Ocurrió un error en el Chatpign! Revisa la consola para más detalles."
+L.ChatpingErrorShort = "[chatping] ¡Ocurrió un error en el Chatping! Revisa la consola para más detalles."
 
 -- GUI
 L.ConCommandHelp = "Abre la configuración de Chatping."
