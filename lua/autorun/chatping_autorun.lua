@@ -1,6 +1,6 @@
 --[[
 
-    Chatping v1.2.0, made by actuallyNothing
+    Chatping v1.2.1, made by actuallyNothing
     https://steamcommunity.com/id/actuallyNothing/
     https://github.com/actuallyNothing/chatping/
 
